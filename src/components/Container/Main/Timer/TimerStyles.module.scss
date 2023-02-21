@@ -1,0 +1,145 @@
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 20px 78px 30px;
+
+  min-width: 480px;
+  min-height: 312px;
+
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.toggleTimer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.showToggleTimer {
+  display: flex;
+
+  margin: 10px 0 20px;
+  padding: 0;
+
+  color: #fff;
+
+  h1 {
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+    font-family: "Wolf-Sans-SC-Regular", monospace;
+    font-size: 120px;
+  }
+}
+
+.btnToggleTimer {
+  min-width: 200px;
+  min-height: 55px;
+
+  margin: 0;
+  padding: 0px 12px;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+
+  border-radius: 4px;
+  border: none;
+  outline: none;
+
+  background-color: #fff;
+  box-shadow: 0px 7px 0px 0px rgba(256, 256, 256, 0.8);
+}
+
+.btnActiveToggleTimer {
+  transform: translateY(7px);
+  box-shadow: none;
+}
+
+.timePeriods {
+  display: flex;
+  gap: 5px;
+}
+
+.btnTimePeriods {
+  min-width: 100px;
+  min-height: 35px;
+
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  background: none;
+
+  font-size: 16px;
+
+  color: #fff;
+
+  &:active {
+    transform: translateY(3px);
+  }
+}
+
+.btnActiveTimePeriods {
+  background-color: rgba(0, 0, 0, 0.2);
+
+  font-weight: 500;
+}
+
+@media screen and(max-width: 428px) {
+  .timer{
+    min-width: 100%;
+    min-height: auto;
+    padding: 20px 15px 25px;
+    justify-content: space-around;
+    gap: 10px;
+  }
+
+  .toggleTimer{
+    padding: 0 0 10px;
+    height: 65%;
+    gap: 30px;
+  }
+
+  .timePeriods{
+    height: 35%;
+  }
+
+  .showToggleTimer{
+    margin: 0;
+    h1{
+      font-size: 110px;
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .showToggleTimer{
+    h1{
+      font-size: 110px;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .btnTimePeriods{
+    min-width: 70px;
+    font-size: 14px;
+  }
+  .showToggleTimer{
+    h1{
+      font-size:  90px;
+    }
+  }
+  .btnToggleTimer{
+    min-width: 150px;
+    min-height: 45px;
+    font-size: 19px;
+  }
+}

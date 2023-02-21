@@ -1,0 +1,4 @@
+export const TO_START = 'TO_START'
+export const TO_CHANGE_MODE = 'TO_CHANGE_MODE'
+export const TO_TOGGLE_MODE = 'TO_TOGGLE_MODE'
+export const TO_CHANGE_INTASK = 'TO_CHANGE_INTASK'

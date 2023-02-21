@@ -1,0 +1,639 @@
+.task {
+  min-width: 480px;
+
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+}
+
+.taskNotification {
+  margin-top: 20px;
+  padding: 0;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+
+  span {
+    margin: 0;
+    display: block;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+  }
+
+  p {
+    margin: 0;
+    display: block;
+    width: 100%;
+    font-size: 17px;
+  }
+}
+
+.taskAddTitle {
+  position: relative;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+
+  margin: 10px 0 0;
+
+  button {
+    border: none;
+    outline: none;
+    padding: 8px;
+
+    background-color: rgba(255, 255, 255, 0.2);
+
+    border-radius: 3px;
+
+    color: rgba(255, 255, 255, 0.7);
+    width: 32px;
+    height: 32px;
+
+    font-size: 17px;
+
+    display: flex;
+    justify-content: center;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+
+      color: rgba(255, 255, 255, 1.5);
+    }
+
+    &:active {
+      transform: translateY(3px);
+    }
+  }
+
+  p {
+    font-family: "Spartan", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
+  }
+
+  &Menu {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 3px 0;
+
+    top: calc(100% - 4px);
+    right: 0;
+
+    background-color: #fff;
+
+    border-radius: 5px;
+    box-shadow: -1px 1px 20px 0px rgba(0, 0, 0, 0.2),
+      1px -1px 1px 0px rgba(0, 0, 0, 0.2);
+
+    min-width: 200px;
+    min-height: 190px;
+
+    z-index: 3;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      font-size: 14px;
+      padding: 10px 20px;
+      font-family: "Work Sans", sans-serif;
+      font-weight: bold;
+      cursor: pointer;
+
+      svg {
+        font-size: 16px;
+        font-weight: 200;
+      }
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.07);
+      }
+    }
+  }
+
+  &MenuClearAllTask {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: calc(100% - 40px);
+      height: 1px;
+      top: -1px;
+      right: 20px;
+      background-color: rgba(0, 0, 0, 0.07);
+    }
+  }
+}
+
+.taskAddToggle {
+  margin-top: 13px;
+  width: 100%;
+
+  button {
+    width: 100%;
+    height: 65px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background-color: rgba(0, 0, 0, 0.08);
+
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 20px;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.08);
+      border-color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.9);
+
+      span {
+        color: rgba(255, 255, 255, 0.9);
+      }
+    }
+
+    span {
+      display: block;
+
+      font-size: 14px;
+      font-family: "Spartan", sans-serif;
+      font-weight: 700;
+
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+.taskAddIcon {
+  transform: translateY(-3px);
+}
+
+.taskInput {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 18px 0 20px;
+
+  box-shadow: rgb(0 0 0 / 15%) 0px 10px 20px, rgb(0 0 0 / 10%) 0px 3px 6px;
+
+  animation: taskInputShowUp 0.1s ease-in-out;
+
+  @keyframes taskInputShowUp {
+    0% {
+      transform: scale(1, 0.8);
+      opacity: 0.1;
+    }
+    100% {
+      transform: scale(1, 1);
+      opacity: 1;
+    }
+  }
+
+  &Info {
+    width: 100%;
+    padding: 35px 20px 25px;
+  }
+
+  &InfoTitle {
+    width: 100%;
+    margin-bottom: 20px;
+
+    input {
+      width: 100%;
+      color: rgb(85, 85, 85);
+      font-weight: 600;
+      font-size: 22px;
+      border: none;
+      outline: none;
+
+      &::placeholder {
+        color: rgba(0, 0, 0, 0.13);
+        font-weight: bold;
+        font-style: italic;
+      }
+    }
+  }
+
+  &InfoEst {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+
+    margin-bottom: 10px;
+
+    width: 100%;
+
+    span {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 17px;
+      font-weight: 700;
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    input {
+      width: 80px;
+      height: 40px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      background-color: rgba(0, 0, 0, 0.07);
+      padding: 0 10px;
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(0, 0, 0, 0.6);
+
+      &:first-of-type {
+        color: rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    button {
+      width: 40px;
+      height: 35px;
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      outline: none;
+      font-size: 17px;
+      background-color: #fff;
+      color: rgba(0, 0, 0, 0.5) !important;
+      box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+
+      &:nth-of-type(1) {
+        margin-left: 7px;
+      }
+
+      span {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &:active {
+        transform: translateY(2px);
+        box-shadow: none;
+      }
+    }
+
+    div:first-of-type {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      span {
+        margin: 0;
+        display: inline;
+        height: fit-content;
+      }
+    }
+  }
+
+  &InfoExtend {
+    margin-top: 5px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    text-decoration: underline;
+    color: rgba(0, 0, 0, 0.35);
+    font-weight: 500;
+    font-size: 15px;
+    font-family: "Work Sans", sans-serif;
+
+    span {
+      cursor: pointer;
+    }
+
+    svg {
+      margin-left: 10px;
+      font-size: 12px;
+    }
+
+    &Text {
+      width: 100%;
+      height: 55px;
+      resize: vertical;
+      border: none;
+      border-radius: 7px;
+      outline: none;
+      margin: 10px 0 0;
+      padding: 10px;
+      font-size: 15px;
+      font-weight: bold;
+      font-family: "Work Sans", sans-serif;
+      background-color: rgba(0, 0, 0, 0.06);
+      color: rgba(0, 0, 0, 0.8);
+
+      &::placeholder {
+        color: rgba(0, 0, 0, 0.25);
+      }
+    }
+  }
+}
+
+.taskInputSubmit {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  background-color: rgba(0, 0, 0, 0.06);
+  padding: 15px 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  div {
+    button {
+      font-size: 14px;
+      min-width: 70px;
+      padding: 9px 9px;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      font-family: "FlamanteRoundBools", sans-serif;
+
+      background-color: transparent;
+      color: rgba(0, 0, 0, 0.4);
+
+      &:active {
+        transform: translateY(3px);
+        box-shadow: none !important;
+      }
+    }
+  }
+
+  &BtnUnActive {
+    color: #fff !important;
+    background-color: rgba(0, 0, 0, 0.27) !important;
+    cursor: default;
+
+    &:active {
+      transform: none !important;
+    }
+  }
+
+  &BtnActive {
+    color: #fff !important;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    box-shadow: 0px 3px 2px 0px rgba(0, 0, 0, 0.5) !important;
+  }
+}
+
+.taskElements {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.taskElement {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: #fff;
+  padding: 0 15px 0 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: rgb(0 0 0 / 10%) 0px 4px 4px;
+  transition: transform 0.2s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 7px;
+    background-color: rgba(0, 0, 0, 0.2);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  &Selected {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: #fff;
+    padding: 0 15px 0 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: none;
+    transform: translateY(1px);
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 7px;
+      background-color: #333;
+      top: 0;
+      left: 0;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+  }
+
+  &BaseInfoTitleFinish {
+    text-decoration: line-through !important;
+    color: rgba(0, 0, 0, 0.3) !important;
+  }
+
+  &BaseInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+
+    h4 {
+      width: 70%;
+      text-align: left;
+      margin-left: -5px;
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    p {
+      font-family: "Manrope", sans-serif;
+      font-weight: bold;
+      font-size: 17px;
+      color: rgba(43, 26, 26, 0.35);
+    }
+
+    span {
+      font-family: "Manrope", sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      color: rgba(43, 26, 26, 0.35);
+      margin-left: 3px;
+    }
+
+    button {
+      &:first-of-type {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        outline: none;
+        border: none;
+        border-radius: 50%;
+
+        padding: 3px;
+        font-size: 16px;
+
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.15);
+
+        width: 27px;
+        height: 27px;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.07);
+        }
+      }
+
+      &:nth-of-type(2) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border: 1px solid rgb(223, 223, 223);
+        outline: none;
+        padding: 8px;
+
+        background-color: transparent;
+
+        border-radius: 5px;
+
+        color: rgba(0, 0, 0, 0.5);
+        width: 30px;
+        height: 30px;
+
+        font-size: 18px;
+
+        display: flex;
+        justify-content: center;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        &:active {
+          transform: translateY(3px);
+        }
+      }
+    }
+  }
+
+  &BaseInfoBtnFinish {
+    background-color: rgb(172, 150, 40) !important;
+    &:hover {
+      background-color: rgba(172, 150, 40, 0.5) !important;
+    }
+  }
+  &ExtendInfo {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgb(252, 248, 222);
+    border-radius: 7px;
+    color: rgb(96, 85, 21);
+    cursor: text;
+    margin: 0 5px 10px 20px;
+    padding: 0 10px;
+    font-size: 17px;
+    box-shadow: 0px 1px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.taskTotalInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  border-top: 1px solid #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 30px 0 100px;
+  font-weight: 400;
+  font-size: 18px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  color: rgba(255, 255, 255, 0.7);
+
+  span {
+    font-weight: 600;
+    font-size: 23px;
+    color: rgb(255, 255, 255);
+    margin-left: 9px;
+    font-family: "Manrope", sans-serif;
+  }
+}
+
+
+@media screen and (max-width: 428px) {
+  .task{
+    min-width: 100%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .taskAddToggle{
+    button{
+      height: 55px;
+      
+      svg{
+        font-size: 19px;
+      }
+
+      span{
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320px){
+  .taskAddToggle{
+    button{
+      height: 50px;
+      
+      svg{
+        font-size: 17px;
+      }
+
+      span{
+        font-size: 13px;
+      }
+    }
+  }
+}
