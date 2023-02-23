@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Pomofocus-Clone/static/css/main.82ce98e4.css",
-    "main.js": "/Pomofocus-Clone/static/js/main.94314441.js",
+    "main.css": "/Pomofocus-Clone/static/css/main.06d8a5f9.css",
+    "main.js": "/Pomofocus-Clone/static/js/main.4ee3d6a8.js",
     "static/media/Flamante-Round-Book-FFP.ttf": "/Pomofocus-Clone/static/media/Flamante-Round-Book-FFP.2bf5813c47c242c78524.ttf",
     "static/media/Wolf Sans Regular.ttf": "/Pomofocus-Clone/static/media/Wolf Sans Regular.939dc4c61a24851f70c4.ttf",
     "index.html": "/Pomofocus-Clone/index.html",
-    "main.82ce98e4.css.map": "/Pomofocus-Clone/static/css/main.82ce98e4.css.map",
-    "main.94314441.js.map": "/Pomofocus-Clone/static/js/main.94314441.js.map"
+    "main.06d8a5f9.css.map": "/Pomofocus-Clone/static/css/main.06d8a5f9.css.map",
+    "main.4ee3d6a8.js.map": "/Pomofocus-Clone/static/js/main.4ee3d6a8.js.map"
   },
   "entrypoints": [
-    "static/css/main.82ce98e4.css",
-    "static/js/main.94314441.js"
+    "static/css/main.06d8a5f9.css",
+    "static/js/main.4ee3d6a8.js"
   ]
 }
