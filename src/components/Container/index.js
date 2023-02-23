@@ -9,8 +9,10 @@ import './styles.scss'
 function Container() {
     const hrDivRef = useRef();
     useEffect(() => {
-        return () => { }
-    }, [ hrDivRef.current ])
+        return () => {
+            hrDivRef.current = null;
+        }
+    }, [])
 
     return (
         <div>

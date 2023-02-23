@@ -11,10 +11,10 @@ import { faCaretUp, faCaretDown, faLock } from '@fortawesome/free-solid-svg-icon
 import styles from './Task.module.scss'
 
 function TaskInput({ handleClose }) {
-    const [ taskState, taskDispatch ] = useContext(TaskContext);
+    const [taskState, taskDispatch] = useContext(TaskContext);
     const { taskInput, tasks } = taskState;
     const titleRef = useRef();
-    const [ isNote, setIsNote ] = useState(false);
+    const [isNote, setIsNote] = useState(false);
 
     useEffect(() => {
         window.scrollTo(0, document.body.scrollHeight);
@@ -46,15 +46,15 @@ function TaskInput({ handleClose }) {
     const handleAddTask = () => {
         if (taskInput.title && taskInput.est) {
 
-            const newTasks = [ ...tasks, {
+            const newTasks = [...tasks, {
                 title: taskInput.title,
                 note: taskInput.note,
                 est: taskInput.est,
                 act: taskInput.act
-            } ];
+            }];
 
             taskDispatch(actions.toAddTask({
-                tasks: [ ...newTasks ],
+                tasks: [...newTasks],
                 taskInput: {
                     title: '',
                     note: '',
@@ -175,8 +175,8 @@ function TaskInput({ handleClose }) {
                     />
                     <CButtonTask
                         className={clsx({
-                            [ styles.taskInputSubmitBtnActive ]: taskInput.title && taskInput.est,
-                            [ styles.taskInputSubmitBtnUnActive ]: !taskInput.title || !taskInput.est
+                            [styles.taskInputSubmitBtnActive]: taskInput.title && taskInput.est,
+                            [styles.taskInputSubmitBtnUnActive]: !taskInput.title || !taskInput.est
                         })}
                         handleClick={handleAddTask}
                         text={`Save`}

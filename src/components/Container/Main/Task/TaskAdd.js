@@ -15,20 +15,20 @@ import { faTrashAlt, faSave } from '@fortawesome/free-regular-svg-icons';
 import styles from './Task.module.scss'
 
 function TaskAdd() {
-    const [ taskState, taskDispatch ] = useContext(TaskContext);
+    const [taskState, taskDispatch] = useContext(TaskContext);
     const { tasks } = taskState;
 
-    const [ selected, setSelected ] = useContext(TaskSelected);
+    const [selected, setSelected] = useContext(TaskSelected);
 
-    const [ periodState ] = useContext(SettingContext);
+    const [periodState] = useContext(SettingContext);
     const { pomodoro, shortBreak, longBreak, intervalLongBreak } = periodState;
 
-    const [ finish, setFinish ] = useState(() => {
+    const [finish, setFinish] = useState(() => {
         const finish = JSON.parse(localStorage.getItem('finish'));
         return finish || [];
     });
-    const [ addPopsUp, setAddPopsUp ] = useState(false);
-    const [ menu, setMenu ] = useState(false);
+    const [addPopsUp, setAddPopsUp] = useState(false);
+    const [menu, setMenu] = useState(false);
 
     const menuRef = useRef();
 
@@ -93,11 +93,11 @@ function TaskAdd() {
             const newFinish = finish;
             newFinish.splice(finish.indexOf(index), 1);
             localStorage.setItem('finish', JSON.stringify(newFinish));
-            setFinish([ ...newFinish ]);
+            setFinish([...newFinish]);
         }
         else {
             setFinish(prev => {
-                const newFinish = [ ...prev, index ];
+                const newFinish = [...prev, index];
                 localStorage.setItem('finish', JSON.stringify(newFinish));
                 return newFinish;
             });
@@ -117,7 +117,7 @@ function TaskAdd() {
         return () => {
             window.onclick = () => { };
         }
-    }, [ menu ]);
+    }, [menu]);
 
     const handleClearAll = () => {
         const confirm = window.confirm('Are you sure you want to delete all tasks?');
@@ -214,6 +214,7 @@ function TaskAdd() {
                     {tasks.map((el, index) =>
                     (
                         <TaskElement
+                            task={el}
                             key={index}
                             index={index}
                             handleSelect={handleSelect}

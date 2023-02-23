@@ -1,9 +1,7 @@
-function Button({ handleClick, className, ...content })
-{
+function Button({ handleClick, className, ...content }) {
     const arrContent = [];
-    for (let prop in content)
-    {
-        arrContent.push(content[ prop ]);
+    for (let prop in content) {
+        arrContent.push(content[prop]);
     }
 
     return (
@@ -11,7 +9,9 @@ function Button({ handleClick, className, ...content })
             className={className}
             onClick={handleClick}
         >
-            {arrContent.map(el => el)}
+            {
+                arrContent.map(el => el)
+            }
         </button>
     )
 }

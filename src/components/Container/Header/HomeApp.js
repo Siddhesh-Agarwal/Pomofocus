@@ -1,6 +1,5 @@
-import clsx from "clsx"
-
-import styles from './HeaderStyles.module.scss'
+import clsx from "clsx";
+import styles from './HeaderStyles.module.scss';
 
 function HomeApp() {
     return (

@@ -15,14 +15,10 @@ import * as timerActions from "../Timer/TimerContext/action"
 function TaskElement({ index, handleSelect, selected, handleFinish, hasFinished, handleClose, addPopsUp }) {
     const [ taskState, taskDispatch ] = useContext(TaskContext);
     const { taskInput, tasks } = taskState;
-
     const [ timerState, timerDispatch ] = useContext(TimerContext);
     const { mode, click, start } = timerState;
-
     const { title, note, est, act } = tasks[ index ];
-
     const [ modify, setModify ] = useState(false);
-
     const handleMountModify = () => {
         setModify(!modify);
     }

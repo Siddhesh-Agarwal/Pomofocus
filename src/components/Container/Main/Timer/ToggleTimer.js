@@ -8,23 +8,18 @@ import * as action from "./TimerContext/action"
 import styles from "./TimerStyles.module.scss"
 
 function ToggleTimer() {
-    const modes = [ 'pomodoro', 'short break', 'long break' ];
+    const modes = ['pomodoro', 'short break', 'long break'];
     const btnRef = useRef();
-
-    const [ timerState, timerDispatch ] = useContext(TimerContext);
+    const [timerState, timerDispatch] = useContext(TimerContext);
     const { mode, start, click, inTask } = timerState;
-
-    const [ periodState ] = useContext(SettingContext);
+    const [periodState] = useContext(SettingContext);
     const { pomodoro, shortBreak, longBreak, intervalLongBreak, autoStartBreak, autoStartPomodoro } = periodState;
-
-    const [ pMin, setPMin ] = useState(pomodoro);
-    const [ sMin, setSMin ] = useState(shortBreak);
-    const [ lMin, setLMin ] = useState(longBreak);
-    const [ sec, setSec ] = useState(0);
-
-    const [ lastMin, setLastMin ] = useState(0);
-    const [ curr, setCurr ] = useState(1);
-
+    const [pMin, setPMin] = useState(pomodoro);
+    const [sMin, setSMin] = useState(shortBreak);
+    const [lMin, setLMin] = useState(longBreak);
+    const [sec, setSec] = useState(0);
+    const [lastMin, setLastMin] = useState(0);
+    const [curr, setCurr] = useState(1);
     const handleStart = () => {
         timerDispatch(action.toStart(!start));
     }
@@ -66,7 +61,7 @@ function ToggleTimer() {
             }, 470);
             return prev;
         })
-    }, [ mode ]);
+    }, [mode]);
 
     useLayoutEffect(() => {
         setLastMin(prevL => {
@@ -74,7 +69,7 @@ function ToggleTimer() {
                 setPMin(pomodoro - prevL);
             return prevL;
         })
-    }, [ pomodoro, mode ]);
+    }, [pomodoro, mode]);
 
     useLayoutEffect(() => {
         setLastMin(prevL => {
@@ -82,7 +77,7 @@ function ToggleTimer() {
                 setSMin(shortBreak - prevL);
             return prevL;
         })
-    }, [ shortBreak, mode ]);
+    }, [shortBreak, mode]);
 
     useLayoutEffect(() => {
         setLastMin(prevL => {
@@ -90,7 +85,7 @@ function ToggleTimer() {
                 setLMin(longBreak - prevL);
             return prevL;
         })
-    }, [ longBreak, mode ]);
+    }, [longBreak, mode]);
 
     useEffect(() => {
         let index;
@@ -100,9 +95,9 @@ function ToggleTimer() {
             let timerID = setInterval(() => {
                 setSec(prevSec => {
                     if (prevSec === 0)
-                        handleWidthHrDiv(60, modes[ index ]);
+                        handleWidthHrDiv(60, modes[index]);
                     else
-                        handleWidthHrDiv(prevSec - 1, modes[ index ]);
+                        handleWidthHrDiv(prevSec - 1, modes[index]);
 
                     if (index === 0 && prevSec === 0) {
                         setLastMin(prev => prev + 1);
@@ -111,11 +106,11 @@ function ToggleTimer() {
                                 setCurr((currentInterval) => {
                                     if (currentInterval % intervalLongBreak !== 0) {
                                         timerDispatch(action.toToggleMode('auto'));
-                                        timerDispatch(action.toChangeMode(modes[ (index + 1) ]));
+                                        timerDispatch(action.toChangeMode(modes[(index + 1)]));
                                     }
                                     else {
                                         timerDispatch(action.toToggleMode('auto'));
-                                        timerDispatch(action.toChangeMode(modes[ (index + 2) ]));
+                                        timerDispatch(action.toChangeMode(modes[(index + 2)]));
                                     }
                                     return currentInterval + 1;
                                 })
@@ -130,7 +125,7 @@ function ToggleTimer() {
                         setSMin(prevMin => {
                             if (prevMin === 0) {
                                 timerDispatch(action.toToggleMode('auto'));
-                                timerDispatch(action.toChangeMode(modes[ (index - 1) ]));
+                                timerDispatch(action.toChangeMode(modes[(index - 1)]));
                                 handleStart();
                                 return 0;
                             }
@@ -142,7 +137,7 @@ function ToggleTimer() {
                         setLMin(prevMin => {
                             if (prevMin === 0) {
                                 timerDispatch(action.toToggleMode('auto'));
-                                timerDispatch(action.toChangeMode(modes[ (index - 2) ]));
+                                timerDispatch(action.toChangeMode(modes[(index - 2)]));
                                 handleStart();
                                 return 0;
                             }
@@ -157,7 +152,7 @@ function ToggleTimer() {
                 clearInterval(timerID);
             }
         }
-    }, [ mode, start, intervalLongBreak, pomodoro, shortBreak, longBreak ]);
+    }, [mode, start, intervalLongBreak, pomodoro, shortBreak, longBreak]);
 
     return (
         <div className={clsx(styles.toggleTimer)}>
@@ -172,7 +167,7 @@ function ToggleTimer() {
                 ref={btnRef}
                 onClick={handleStart}
                 className={clsx(styles.btnToggleTimer, {
-                    [ styles.btnActiveToggleTimer ]: start
+                    [styles.btnActiveToggleTimer]: start
                 })}
             >
                 {(start) ? 'STOP' : 'START'}
