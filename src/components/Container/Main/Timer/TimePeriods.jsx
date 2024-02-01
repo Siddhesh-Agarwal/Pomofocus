@@ -1,39 +1,28 @@
 import { useContext, useLayoutEffect } from "react"
 import clsx from "clsx"
-
 import { TimerContext } from "./TimerContext/context"
-
 import * as action from "./TimerContext/action"
-
 import styles from "./TimerStyles.module.scss"
 
-function TimePeriods()
-{
-    const [ timerState, timerDispatch ] = useContext(TimerContext);
+function TimePeriods() {
+    const [timerState, timerDispatch] = useContext(TimerContext);
     const { start, mode } = timerState;
 
-    useLayoutEffect(() =>
-    {
-        if (mode === 'pomodoro')
-        {
+    useLayoutEffect(() => {
+        if (mode === 'pomodoro') {
             document.body.style.backgroundColor = '#d95550';
         }
-        if (mode === 'short break')
-        {
+        if (mode === 'short break') {
             document.body.style.backgroundColor = '#4c9195';
         }
-        if (mode === 'long break')
-        {
+        if (mode === 'long break') {
             document.body.style.backgroundColor = '#457ca3';
         }
-    }, [ mode ])
+    }, [mode])
 
-    const handleActive = (modeActive) =>
-    {
-        if (start) 
-        {
-            if (!window.confirm('The timer is still running, are you sure you want to switch?'))
-            {
+    const handleActive = (modeActive) => {
+        if (start) {
+            if (!window.confirm('The timer is still running, are you sure you want to switch?')) {
                 return;
             }
         }
@@ -54,7 +43,7 @@ function TimePeriods()
             <button
                 onClick={() => handleActive('pomodoro')}
                 className={clsx(styles.btnTimePeriods, {
-                    [ styles.btnActiveTimePeriods ]: (mode === 'pomodoro')
+                    [styles.btnActiveTimePeriods]: (mode === 'pomodoro')
                 })}
             >
                 Pomodoro
@@ -62,7 +51,7 @@ function TimePeriods()
             <button
                 onClick={() => handleActive('short break')}
                 className={clsx(styles.btnTimePeriods, {
-                    [ styles.btnActiveTimePeriods ]: (mode === 'short break')
+                    [styles.btnActiveTimePeriods]: (mode === 'short break')
                 })}
             >
                 Short Break
@@ -70,7 +59,7 @@ function TimePeriods()
             <button
                 onClick={() => handleActive('long break')}
                 className={clsx(styles.btnTimePeriods, {
-                    [ styles.btnActiveTimePeriods ]: (mode === 'long break')
+                    [styles.btnActiveTimePeriods]: (mode === 'long break')
                 })}
             >
                 Long Break

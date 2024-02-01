@@ -92,8 +92,8 @@
   font-weight: 500;
 }
 
-@media screen and(max-width: 428px) {
-  .timer{
+@media screen and (max-width: 428px) {
+  .timer {
     min-width: 100%;
     min-height: auto;
     padding: 20px 15px 25px;
@@ -101,43 +101,46 @@
     gap: 10px;
   }
 
-  .toggleTimer{
+  .toggleTimer {
     padding: 0 0 10px;
     height: 65%;
     gap: 30px;
   }
 
-  .timePeriods{
+  .timePeriods {
     height: 35%;
   }
 
-  .showToggleTimer{
+  .showToggleTimer {
     margin: 0;
-    h1{
+
+    h1 {
       font-size: 110px;
     }
   }
 }
 
 @media screen and (max-width: 375px) {
-  .showToggleTimer{
-    h1{
+  .showToggleTimer {
+    h1 {
       font-size: 110px;
     }
   }
 }
 
 @media screen and (max-width: 320px) {
-  .btnTimePeriods{
+  .btnTimePeriods {
     min-width: 70px;
     font-size: 14px;
   }
-  .showToggleTimer{
-    h1{
-      font-size:  90px;
+
+  .showToggleTimer {
+    h1 {
+      font-size: 90px;
     }
   }
-  .btnToggleTimer{
+
+  .btnToggleTimer {
     min-width: 150px;
     min-height: 45px;
     font-size: 19px;
