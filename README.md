@@ -1,8 +1,11 @@
-# React + Vite
+# Pomofocus-Clone (25+5 Clock)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![image](https://user-images.githubusercontent.com/68057995/220324659-6ef5e3ac-6831-42e1-8190-f7936a111850.png)
 
-Currently, two official plugins are available:
+INSPIRATION: [pomofocus.io](https://pomofocus.io/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- JavaScript
+- React.js
+- Vite.js
+- SCSS
